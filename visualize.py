@@ -410,6 +410,8 @@ def plot_loss(loss, val_loss, save=True, log_dir=None):
     plt.ylabel('loss')
     plt.legend()
     if save:
+        if os.path.exists(log_dir):
+            os.mkdir(log_dir)
         save_path = os.path.join(log_dir, "loss.png")
         plt.savefig(save_path)
     else:
